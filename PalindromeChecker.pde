@@ -14,16 +14,23 @@ public void setup()
     }
   }
 }
-public boolean palindrome(String word)
-{
-  //your code here
-  return false;
+public boolean palindrome(String sWord){
+  if(sWord.equals(reverse(sWord)))
+  {
+    return true;    
+  }
+  else
+  {
+    return false;    
+  }
 }
-public String reverse(String str)
-{
-    String sNew = new String();
-    //your code here
-    return sNew;
+public String reverse(String str){
+  String gip = new String();
+  for (int i = str.length()-1; i >= 0; i--)
+  {
+    gip = gip + str.charAt(i);
+  }
+  return gip;
 }
 
 
