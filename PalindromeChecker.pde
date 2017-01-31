@@ -15,7 +15,8 @@ public void setup()
   }
 }
 public boolean palindrome(String sWord){
-  if(sWord.equals(reverse(sWord)))
+  String reversed = onlyLetters(reverse(sWord));
+  if(onlyLetters(sWord).equals(reversed))
   {
     return true;    
   }
@@ -24,13 +25,41 @@ public boolean palindrome(String sWord){
     return false;    
   }
 }
-public String reverse(String str){
+public String reverse(String sWord){
   String gip = new String();
-  for (int i = str.length()-1; i >= 0; i--)
+  for (int i = sWord.length()-1; i >= 0; i--)
   {
-    gip = gip + str.charAt(i);
+    gip = gip + sWord.charAt(i);
   }
   return gip;
 }
 
+public String noSpaces(String sWord){
+  String spaceless = new String();
+  for(int i=0; i<sWord.length(); i++)
+  {
+    if(sWord.charAt(i) != ' ')
+    {
+      spaceless = spaceless + sWord.substring(i, i+1);
+    }
+  }
+  return spaceless;
+}
 
+public String onlyLetters(String sWord){
+  String text = new String();
+  for(int i=0; i<sWord.length(); i++)
+  {
+    if(Character.isLetter(sWord.charAt(i)) == true)
+    {
+      text = text + sWord.substring(i, i+1).toLowerCase();
+    }
+  }
+  return text;
+}
+
+/*
+public String noCapitals(String sWord){
+    return sWord.toLowerCase();
+}
+*/
